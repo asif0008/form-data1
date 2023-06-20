@@ -37,7 +37,7 @@
       
 
       <script>
-       document.getElementById("myForm").addEventListener("submit", function(event) {
+      /* document.getElementById("myForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission
 
     // Get the form field values
@@ -74,7 +74,47 @@
       // Handle any error that occurred during the request
       console.error("Error sending form data:", error);
     });
+  });*/
+
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the form field values
+  var name = document.getElementById("inlineFormInput").value;
+  var email = document.getElementById("inlineFormInputEmail").value;
+  var phoneNumber = document.getElementById("inlineFormInputPhone").value;
+  var checkBox = document.getElementById("checkBox").checked; // Check if the checkbox is checked
+
+  // Create the payload object
+  var payload = {
+    name: name,
+    email: email,
+    phoneNumber: phoneNumber,
+    checkBox: checkBox
+  };
+
+  // Make a POST request to the specified URL with the payload data
+  fetch("https://services.leadconnectorhq.com/hooks/t0p0OryAVadI8qSRSlSl/webhook-trigger/920a8367-aad5-4904-832e-aca8a57a297f", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(function(response) {
+    // Handle the response from the server
+    console.log(payload.name);
+    console.log(payload.email);
+    console.log(payload.phoneNumber);
+    console.log(payload.checkBox);
+    // Add any further handling or redirection logic here
+  })
+  .catch(function(error) {
+    // Handle any error that occurred during the request
+    console.error("Error sending form data:", error);
   });
+});
+
       </script>
       
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
