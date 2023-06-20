@@ -46,12 +46,14 @@
     var name = document.getElementById("inlineFormInput").value;
     var email = document.getElementById("inlineFormInputEmail").value;
     var phoneNumber = document.getElementById("inlineFormInputPhone").value;
+    var checkBox = document.getElementById("autoSizingCheck");
 
     // Create the payload object
     var payload = {
       name: name,
       email: email,
-      phoneNumber: phoneNumber
+      phoneNumber: phoneNumber,
+      checkBox: checkBox
     };
 
     // Make a POST request to the specified URL with the payload data
@@ -64,7 +66,10 @@
     })
     .then(function(response) {
       // Handle the response from the server
-      console.log(payload);
+      console.log(payload.name);
+      console.log(payload.email);
+      console.log(payload.phoneNumber);
+      console.log(payload.checkBox);
       // Add any further handling or redirection logic here
     })
     .catch(function(error) {
