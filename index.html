@@ -25,10 +25,10 @@
           </div>
           <div class="col-auto">
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-              <label class="form-check-label" for="autoSizingCheck">
-                Absolutely
-              </label>
+              <select id="optionValue">
+                  <option value="option1">Yes</option>
+                  <option value="option2">No</option>
+               </select>
             </div>
           </div>
           <div class="col-auto">
@@ -46,14 +46,14 @@
     var name = document.getElementById("inlineFormInput").value;
     var email = document.getElementById("inlineFormInputEmail").value;
     var phoneNumber = document.getElementById("inlineFormInputPhone").value;
-    var checkBox = document.getElementById("autoSizingCheck").value;
+    var optionValue = document.getElementById("optionValue").value;
 
     // Create the payload object
     var payload = {
       name: name,
       email: email,
       phoneNumber: phoneNumber,
-      checkBox: checkBox
+      optionValue: optionValue
     };
 
     // Make a POST request to the specified URL with the payload data
